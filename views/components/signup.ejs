@@ -1,0 +1,60 @@
+	<section class="signup_container">
+        <form novalidate="" class="container form_container" method="post" action="/signup">
+              <div class="form-group">
+                <label class="form-label" for="formBasicName">Name</label>
+                <input name="name" name="name" placeholder="Enter Name" required="" type="text" id="formBasicName" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicEmail">Email address</label>
+                <input name="email" placeholder="Enter email" required="" type="email" id="formBasicEmail" class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="formBasicPassword">Password</label>
+                <input name="password" placeholder="Password" required="" type="password" id="formBasicPassword" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Gender</label>
+                <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Phone No</label>
+                <input name="phoneno" placeholder="Phone No" required="" type="number" id="formBasicPhoneno" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Whatsapp No</label>
+                <input name="whatsappno" placeholder="Whatsapp No" required="" type="number" id="formBasicPhoneno" class="form-control">
+              </div>
+
+               <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">License No</label>
+                <input name="licenseno" placeholder="License No" required="" type="text" id="formBasicPhoneno" class="form-control">
+              </div>
+
+               <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Driving Expereince</label>
+                <input name="drivingexpereince" placeholder="Driving Expereince" required="" type="number" id="formBasicPhoneno" class="form-control">
+              </div>
+
+               <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Mini bio about yourself
+                </label>
+               <textarea placeholder="Example: &quot;I'm a student at Chennai University, and I often visit friends in tirunelveli. I love photography and rock music.&quot;" class="form-control" name="bio" maxlength="500"></textarea>
+              </div>
+              
+              <input type="submit" class="btn create_button" value="Create account">
+              <% if((typeof error_msg==="undefined")) {%>
+                <div class="error_msg"><span></span></div>
+                <%}else {%>
+                <div class="error_msg"><span><%= error_msg%></span></div>
+                <%}%>
+        </form>
+  </section>

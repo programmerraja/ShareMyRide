@@ -1,0 +1,247 @@
+:root
+{
+    /*//#ff6a00*/
+	--primary-color:white;
+    --secondary-color:#ff6a00;
+
+}
+
+body
+{
+	    background-color: var(--primary-color);
+}
+/*   navigation */
+nav
+{
+    border: 1px solid #e5e5e5;
+}
+
+.navbar-nav{
+    align-items: center;
+}
+.home_img{
+    height: 35px;
+    position:relative;
+}
+.home_img:hover ~ .home_dropdown {
+    display: flex;
+}
+.home_dropdown::before{
+    bottom: 100%;
+    right: 16px;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 12px solid transparent;
+    border-bottom-color: var(--secondary-color);   
+}
+
+.home_dropdown-arrow
+{
+    display: inline-block;
+    align-self: center;
+    margin-right: 37px;
+    cursor: pointer;
+    height: 7px;
+    width: 7px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+     border-right: 1.5px solid black;
+     border-top: 1.5px solid black;
+}
+
+
+.user_img{
+    height: 35px;
+    position:relative;
+}
+.arrow,
+.home_arrow{
+     cursor: pointer;
+     transition: transform 0.5s ease-in-out;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.profile_dropdown::before{
+    bottom: 100%;
+    right: 16px;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 12px solid transparent;
+    border-bottom-color: var(--secondary-color);   
+}
+.profile_dropdown,
+.home_dropdown{
+    display: flex;
+    flex-direction: column;
+    background-color:var(--primary-color);
+    position: absolute;
+    width: 288px;
+    padding: 20px;
+    right: 31px;
+    top: 56px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 12%), 0 6px 6px 0 rgb(0 0 0 / 24%);
+    border-radius: 4px;
+    z-index: 100;
+}
+.home_dropdown{
+    width: 180px;
+    padding: 10px;
+    right: 10px;
+}
+.profile{
+    display: flex;
+    justify-content:center;
+}
+.profile_img{
+    margin-right: 33px;
+}
+.profile_img img{
+    height: 68px;
+}
+.profile_text{
+
+}
+.profile_text-edit
+{
+    text-decoration:underline;
+}
+.profile_text-link{
+}
+
+.profile_option{
+    border-top: 1px solid rgba(0,47,52,.2);
+    display: flex;
+    flex-direction: column;
+}
+.profile_option-text{
+    display: flex;
+    margin-left: 29px;
+}
+input,
+textarea,
+input[type='button'],
+select
+{
+	width: 100%;
+    height: calc(1.5em + .50rem + 1px) !important;
+    background-color: #fff ;
+	border-radius: 5px;
+    border: 1px solid var(--secondary-color) !important;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+input[type='button'],
+input[type='submit'],
+textarea
+{
+    width: auto;
+    height: calc(1.5em + .50rem + 1px) !important;
+    color: white !important;
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    
+}
+textarea
+{
+    outline: none;
+    appearance: none;   
+    width: 95% !important ;
+    box-sizing: content-box;
+    min-height: 120px;
+}
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='date']:focus,
+input[type='number']:focus,
+input[type='time']:focus,
+textarea:focus,
+select:focus
+{
+	color: #495057 !important;
+    background-color: #fff !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.1rem var(--secondary-color) !important;
+}
+select
+{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    outline: none;
+    font-size: 1.2rem;
+}
+
+/*  FORM STYLES */
+
+.form_container
+{
+    width: 450px !important;
+    background-color: white;    
+    margin: 20px auto;  
+    padding: 18px;
+    border-radius: 10px;
+}
+.error_msg
+{
+    text-align: center;
+    color: red;
+    margin: 10px;
+    word-break: break-word;
+}
+/*  MOBILE  */
+
+@media (max-width:768px)
+{
+
+/*  FORM STYLES */
+
+/*NAV*/
+.navbar-nav{
+    align-items: flex-start;
+}
+.user_img,
+.arrow
+{
+    display: none;
+}
+.profile_dropdown{
+    visibility: initial !important;
+    position: initial;
+    background-color: #f8f9fa;
+    width: 100%;
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+}
+.profile{
+    justify-content: flex-start;
+}
+
+.form_container
+{
+    width: 90% !important; 
+}
+}

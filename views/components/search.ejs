@@ -1,0 +1,73 @@
+<div class="search_background">
+
+<% if(!(typeof search==="undefined")){%>
+   <section class="search_container">
+		 <form novalidate="" class="container" action="/search/ride" method="post">
+   		   	<div class="search_card">
+	           <div class="search_input">
+	             <label>From</label>
+				 <input value="<%=search.from%>" type="text"  name="from" class="search_src">
+	          </div>
+	       
+	           <div class="search_input">
+	              <label>To</label>
+				  <input value="<%= search.to%>" type="text"  name="to" class="search_dest">
+	          </div>
+	          <div class="search_input">
+				<label>Type</label>
+	               <select name="type" id="type">
+	                        <option value="Taxi" <%= search.type==='Taxi'?'selected':''%> >Taxi</option>
+	                        <option value="goods&services" <%=search.type==='goods&services'?'selected':''%>>Goods & Service</option>
+	                </select>
+	          </div>
+	          
+	          <div class="search_input">
+	            <label>Date</label>
+				<input value="<%= search.date%>" type="date"  name="date" class="search_date">
+	          </div>
+	       	  <input type="submit" class="btn search_button" value="Search" >
+	        </div>
+	    </form>
+</section>
+<%} else{ %>
+<section class="search_container">
+	<form novalidate="" class="container" action="/search/ride" method="post">
+   		   	<div class="search_card">
+	           <div class="search_input">
+	             <label>From</label>
+				 <input  type="text" value="" name="from" class="search_src">
+	          </div>
+
+	           <div class="search_input">
+	              <label>To</label>
+				  <input  type="text" value="" name="to" class="search_dest">
+	          </div>
+
+	          <div class="search_input">
+				<label>Type</label>
+	               <select name="type" id="type">
+	                        <option value="car">Taxi</option>
+	                        <option value="goods&services">Goods & Service</option>
+	                </select>
+	          </div>
+	          
+	          <div class="search_input">
+	            <label>Date</label>
+	            <% let dates=new Date();
+	               let year=dates.getFullYear();
+	               let month=dates.getMonth()+1;
+	               month=month>10?month:"0"+month;
+	               let day=dates.getDate();
+	               day=day>10?day:"0"+day;
+
+	               let date=year+"-"+month+"-"+day;
+	            %>
+				<input type="date" value="<%=date%>" name="date" class="search_date">
+	          </div>
+	       	  <input type="submit" class="btn search_button" value="Search" >
+	        
+	        </div>
+    </form>
+</section>
+ <% } %>
+</div>

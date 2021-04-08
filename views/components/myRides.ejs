@@ -1,0 +1,58 @@
+<div class="myrides_container">
+	<!-- <div class="myrides_search">
+		<input type="text" name="search">
+	</div> -->
+<% if(!(typeof rides==="undefined")) {%>
+	 <% rides.forEach((ride)=>{ %>
+	<div class="myrides">
+		
+		<div class="myrides-left">
+				<img src="https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png" alt="vechiles">
+		</div>
+
+		<div class="myrides-right">
+						<div class="vechile_type font-weight-bold">
+							<p class="text-capitalize m-0"><%=ride.type%></p>
+						</div>
+
+						<div class="myrides-right-location">
+							<div class="location_from text-muted  mx-2">
+								<p class="text-capitalize m-0"><i class="fas fa-circle"></i><%=ride.from%></p>
+							</div>
+							<span class="line"></span>
+							<div class="location_to text-muted  mx-2">
+								<p class="text-capitalize m-0"><i class="fas fa-map-marker-alt"></i><%=ride.to%><p>
+							</div>
+						</div>
+						<div class="myrides-right-detail">
+							<div class="ride_date text-muted mx-2">
+								
+			
+								<p class="text-capitalize m-0"><i class="far fa-calendar-alt"></i><%=new Date(ride.date).toDateString()%></p>
+							</div>
+							<div class="ride_time text-muted mx-2">
+								<p class="text-capitalize m-0"><i class="far fa-clock"></i><%=ride.time%></p>
+							</div>
+						</div>
+		</div>			
+		<div class="myrides-link">
+				
+					<div class="myrides-dot">
+						<div class="dot"></div>
+						<div class="dot"></div>
+						<div class="dot"></div>
+
+					</div>
+					<div class="myrides_dropdown invisible">
+						<p class="myrides_dropdown-option text-capitalize"><a href="/user/edit/myride/id/<%=ride._id%>">edit</a></p>
+						<p class="myrides_dropdown-option text-capitalize"><a href="/user/remove/myride/id/<%=ride._id%>">remove</a></p>
+					</div>
+				
+		</div>
+					
+	</div>
+	<%});%>
+	<%}else { %>
+		<p class="text-muted text-capitalize text-center m-5">No ride's found</p>
+	<% } %>
+</div>

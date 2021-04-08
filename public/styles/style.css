@@ -1,0 +1,29 @@
+.search_background{
+    background-size: 100% 100%;
+    background-image: url(/public/img/bg.jpg);
+    height: 80vh;
+}
+
+.search_container
+{
+    padding: 24px 7px;
+    max-width:330px !important;
+    background-color:white;
+    max-width: 303px;	
+    border-radius: 10px;
+    margin: 20px;
+    position: absolute;
+}
+.search_card
+{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+}
+.search_button
+{
+    height: calc(2.5em + .50rem + 1px) !important;
+	width: 100% !important;
+	margin: 10px 0;
+}
+

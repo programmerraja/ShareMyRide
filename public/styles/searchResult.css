@@ -1,0 +1,144 @@
+
+.search_container {
+	max-width:100% !important;
+	background-color: var(--primary-color);
+    margin: 10px auto;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+}
+.search_container label{
+	display: block;
+}
+.search_card
+{
+		display: flex;
+		flex-wrap: wrap;
+}
+.search_input
+{
+	margin: 8px 10px;
+}
+.search_input input,
+.search_input select
+{
+	max-width:200px;
+	width:250px; 
+}
+
+.circle {
+    width: 15px;
+    height: 16px;
+    margin-top: 5px;
+    background: #fff;
+    border: 4px solid #777777;
+    border-radius: 50%;
+    display: block;
+}
+.circle:after{
+	content: "";
+	border-top: 1px dashed black;
+}
+.search_button
+{
+	margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+	padding: .375rem .75rem;
+    height: calc(2.5em + .50rem + 1px) !important;
+    font-size: 1.2rem;
+
+}
+
+.search_result
+{
+	display: flex;
+	background-color: var(--primary-color);
+	margin:0  10px;
+	border: 1px solid #e5e5e5;
+
+}
+.search_result-title
+{
+	margin-left: 20px;
+}
+.search_result-left img
+{
+	height: 70px;
+	width: 70px;
+}
+.search_result-right
+{
+	flex: 1;
+	margin-left: 20px;
+}
+.vechile_type 
+{
+	margin-left: 10px;
+
+}
+.search_result-right-detail,
+.search_result-right-location
+{
+	display: flex;
+	flex-wrap: wrap;	
+}
+.search_result-right-location
+{
+	flex-direction: column;
+}
+.search_result-link
+{
+	align-self: center;
+		
+}
+.search_result-arrow
+{
+	align-self: center;
+	margin-right: 37px;
+	cursor: pointer;
+	height: 7px;
+    width: 7px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+     border-right: 1.5px solid black;
+     border-top: 1.5px solid black;
+}
+.line{
+	background: #8b9298;
+    height: 31px;
+    margin: 0;
+    width: 3px;
+    position: relative;
+    left: 13px;
+    top: -5px;
+}
+.location_to{
+	margin-top: -10px;
+}
+
+/*  MOBILE  */
+@media (max-width:568px)
+{
+.search_container {
+	max-width:370px !important;
+}
+.search_container label{
+   width: 55px;
+}
+.search_input{
+	display: flex;
+	width: 100%;
+}
+.search_input input,
+.search_input select
+{
+	max-width:100%; 
+	width: 100%;
+}
+.search_button{
+	width: 100% !important;
+	margin: 15px 0;
+}
+
+
+}

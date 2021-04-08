@@ -1,0 +1,147 @@
+.search_container {
+	max-width:100% !important;
+	background-color: var(--primary-color);
+    margin: 10px auto;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+}
+.search_card
+{
+		display: flex;
+		flex-wrap: wrap;
+}
+.search_input
+{
+	margin: 8px 10px;
+}
+.search_input input,
+.search_input select
+{
+	max-width:200px;
+	width:250px; 
+
+}
+.search_button
+{
+	margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+	padding: .375rem .75rem;
+    height: calc(2.5em + .50rem + 1px) !important;
+    font-size: 1.2rem;
+
+}
+
+.myrides
+{
+	display: flex;
+	background-color: var(--primary-color);
+	margin:10px  10px;
+	position: relative;
+	border: 1px solid #e5e5e5;
+
+}
+.myrides-title
+{
+	margin-left: 20px;
+}
+.myrides-left img
+{
+	height: 70px;
+	width: 70px;
+}
+.myrides-right
+{
+	flex: 1;
+	margin-left: 20px;
+}
+.vechile_type 
+{
+	margin-left: 10px;
+
+}
+.myrides-right-detail,
+.myrides-right-location
+{
+	display: flex;
+	flex-wrap: wrap;
+}
+.myrides-right-location{
+	flex-direction: column;
+}
+.line{
+	background: #8b9298;
+    height: 31px;
+    margin: 0;
+    width: 3px;
+    position: relative;
+    left: 13px;
+    top: -5px;
+}
+.location_to{
+	margin-top: -10px;
+}
+.myrides-link
+{
+	align-self: center;
+		
+}
+
+.myrides-dot
+{
+	cursor: pointer;	
+    position: absolute;
+    display: flex;
+	justify-content: space-between;
+    top: 10px;
+    right: 6px;
+    width: 27px;
+    height: 30px;
+}
+.dot{
+	height: 6px;
+    width: 6px;
+    background: gray;
+    border-radius: 50%;
+}
+
+.myrides_dropdown
+{
+	width: 137px;
+	padding-top: 10px;
+    position: absolute;
+    top: 20px;
+    background-color: white;
+    right: 19px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 12%), 0 6px 6px 0 rgb(0 0 0 / 24%);
+}
+.myrides_dropdown-option{
+	padding:0.50rem 0; 
+	padding-left: 0.50rem;
+	cursor: pointer;
+	border-radius: 7px;
+}
+.myrides_dropdown-option a{
+	display: block;
+	width: 100%;
+	color: black;
+	text-decoration: none;
+}
+.myrides_dropdown-option:hover{
+	background-color:var(--secondary-color);
+}
+/*  MOBILE  */
+
+@media (max-width:768px)
+{
+.dot{
+	height: 5px;
+	width: 5px;
+}
+
+.myrides_dropdown{
+	width: 90px;
+	font-size: 14px;
+}
+}
