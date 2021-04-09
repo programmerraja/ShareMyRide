@@ -1,3 +1,5 @@
+//for env
+require("dotenv").config();
 
 //node modules
 const express=require("express");
@@ -16,7 +18,7 @@ const searchrouter=require("./routes/search");
 const userrouter=require("./routes/user");
 
 const app=new express();
-const MONGO_URI = "mongodb://127.0.0.1:27017/data";
+const MONGO_URI =process.env.DBURL;
 
 //db connect
 mongoose
@@ -81,3 +83,4 @@ process.on("uncaughtException",()=>{
 app.listen(port,()=>{console.log("server started")});
 
 
+	
