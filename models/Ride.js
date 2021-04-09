@@ -42,6 +42,6 @@ const RideSchema = new mongoose.Schema(
                                 
                                 );
 
-Ride = mongoose.model("Ride", RideSchema);
+Ride = mongoose.model("rides", RideSchema);
 
 module.exports = Ride

@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const bcrypt = require ('bcrypt');
-
+var validator = require('validator');
 const usermodel=require("../models/Users");
 //util
 const {generateToken,forgetPassword,AppError,verfiyMail,dbErrorHandler}=require("../util/util");

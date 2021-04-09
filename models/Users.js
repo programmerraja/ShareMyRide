@@ -47,13 +47,4 @@ const UserSchema = new mongoose.Schema(
                                 );
 
 User = mongoose.model("users", UserSchema);
-// small=new User({email:"S",password:'s'});
-// small.save(function (err) {
-//   if (err) console.log(e);
-//   else
-//   {
-//     console.log("s") 
-//   }
-  
-// });
 module.exports = User

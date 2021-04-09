@@ -1,4 +1,4 @@
-// var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
 const crypto=require("crypto");
 
 function generateToken(){
@@ -11,13 +11,13 @@ function sendMail(subject,body,to_mail)
 	var transporter = nodemailer.createTransport({
 	  service: 'gmail',
 	  auth: {
-	    user: '950618104008@einsteincollege.ac.in',
-	    pass: ""
+	    user: process.env.EMAIL,
+	    pass: process.env.PASSWORD
 	  }
 	});
 
 	var mailOptions = {
-	  from: '950618104008@einsteincollege.ac.in',
+	  from: process.env.EMAIL,
 	  to: to_mail,
 	  subject: subject,
 	  html:body
