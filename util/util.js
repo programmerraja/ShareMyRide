@@ -8,51 +8,55 @@ function generateToken(){
 
 function sendMail(subject,body,to_mail)
 {
-	var transporter = nodemailer.createTransport({
-	  service: 'gmail',
-	  auth: {
-	    user: process.env.EMAIL,
-	    pass: process.env.PASSWORD
-	  }
-	});
+	 return new Promise((resolve,reject)=>{
+			var transporter = nodemailer.createTransport({
+			  service: 'gmail',
+			  auth: {
+			    user: process.env.EMAIL,
+			    pass: process.env.PASSWORD
+			  }
+			});
 
-	var mailOptions = {
-	  from: process.env.EMAIL,
-	  to: to_mail,
-	  subject: subject,
-	  html:body
-	};
+			var mailOptions = {
+			  from:process.env.EMAIL,
+			  to: to_mail,
+			  subject: subject,
+			  html:body
+			};
 
-	transporter.sendMail(mailOptions, function(err, info){
-	  if(err) {
-			logError(err);
-	    	return -1	
-	  } else {
-	    console.log('Email sent: ' + info.response);
-	    return 1;
-	  }
+			transporter.sendMail(mailOptions, function(err, info){
+			  if(err) {
+					logError(err);
+					 resolve(false);
+			  } else {
+			    console.log('Email sent: ' + info.response);
+			      resolve(true);
+			  }
+			});
 	});
 }
 
-function sendPasswordReset(to_mail,user_name,link)
+async function sendPasswordReset(to_mail,user_name,link)
 {
 	let subject="Reset Your Password";
 	let body="<p>Hai "+user_name+",</p>\
-	 		<p>A request has been recevied to change the password for your ShareMyRide account. This link only work for 20 minutes</p>\
+	 		<p>A request has been recevied to change the password for your InfoG account. This link only work for 20 minutes</p>\
 	 		 <a href='"+link+"'>Reset Password </a>"
-
-	return sendMail(subject,body,to_mail)
+	let msg=await sendMail(subject,body,to_mail);
+	return msg;
 
 }
 
-function verfiyMail(to_mail,user_name,link){
+async function verfiyMail(to_mail,user_name,link){
 
 	let subject="Verfiy Your Mail";
 	let body="<p>Hai "+user_name+",</p>\
-	 		<p>we're happy you signed up for ShareMyRide. To start exploringthe ShareMyRide confirm your email address\
+	 		<p>we're happy you signed up for InfoG. To start exploringthe InfoG confirm your email address\
 	 		 <a href='"+link+"'>Verfiy Now</a>"
 
-	return sendMail(subject,body,to_mail)
+	let msg=await sendMail(subject,body,to_mail);
+	return msg;
+
 }
 
 class AppError extends Error{

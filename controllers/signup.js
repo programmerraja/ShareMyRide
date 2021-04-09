@@ -16,13 +16,15 @@ function get(req,res)
 //handling POST /signup
 async function post(req,res)
 {
+
+
       if(!validator.isEmail(req.body.email)){ 
           res.render("signup",{error_msg:"Invalid Email",user:""}); 
           return
       }
 
       
-      let hash = bcrypt.hashSync(password, 2);
+      let hash = bcrypt.hashSync(req.body.password, 2);
       req.body.password=hash;
       let new_user=new usermodel(req.body);
       
@@ -34,7 +36,7 @@ async function post(req,res)
                                           });
       if(new_user){
           let link=req.protocol+"://"+req.get("host")+"/user/verfiy/email/"+new_user._id;
-          let msg= verfiyMail(new_user.email,new_user.name);
+          let msg=await verfiyMail(new_user.email,new_user.name);
           if(msg){
             res.redirect("/signin");
           }
