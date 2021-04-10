@@ -2,9 +2,16 @@
 	<!-- <div class="myrides_search">
 		<input type="text" name="search">
 	</div> -->
+	<div class="sucess-msg bg-success p-2 text-center">
+		<p class="text-uppercase text-white bg-success  text-center "></p>
+		<p>X</p>
+	</div>
+	<p class="text-uppercase text-white bg-danger p-2 text-center d-none"></p>
+	<p class="text-uppercase text-muted text-center mt-2">your ride's</p>
+
 <% if(!(typeof rides==="undefined")) {%>
 	 <% rides.forEach((ride,i)=>{ %>
-	<div class="myrides">
+	<div class="myrides" >
 		
 		<div class="myrides-left">
 				<img src="https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png" alt="vechiles">
@@ -17,21 +24,23 @@
 
 						<div class="myrides-right-location">
 							<div class="location_from text-muted  mx-2">
-								<p class="text-capitalize m-0"><i class="fas fa-circle"></i><%=ride.from%></p>
+								<p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);" ></i><%=ride.from%></p>
 							</div>
 							<span class="line"></span>
 							<div class="location_to text-muted  mx-2">
-								<p class="text-capitalize m-0"><i class="fas fa-map-marker-alt"></i><%=ride.to%><p>
+								<p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);"></i><%=ride.to%><p>
 							</div>
 						</div>
 						<div class="myrides-right-detail">
 							<div class="ride_date text-muted mx-2">
 								
-			
-								<p class="text-capitalize m-0"><i class="far fa-calendar-alt"></i><%=new Date(ride.date).toDateString()%></p>
+								<p class="text-capitalize m-0"><i class="far fa-calendar-alt"></i><%=new Date(	ride.date).toDateString()%></p>
 							</div>
 							<div class="ride_time text-muted mx-2">
 								<p class="text-capitalize m-0"><i class="far fa-clock"></i><%=ride.time%></p>
+							</div>
+							<div class="ride_time text-muted mx-2">
+								<p class="text-capitalize m-0"><i class="fas fa-rupee-sign"></i><%=ride.amount%></p>
 							</div>
 						</div>
 		</div>			
@@ -44,8 +53,8 @@
 
 					</div>
 					<div class="myrides_dropdown index<%= i %>  invisible" >
-						<p class="myrides_dropdown-option text-capitalize"><a href="/user/edit/myride/id/<%=ride._id%>">edit</a></p>
-						<p class="myrides_dropdown-option text-capitalize"><a href="/user/remove/myride/id/<%=ride._id%>">remove</a></p>
+						<p class="myrides_dropdown-option1 text-capitalize"><a href="/user/edit/myride/id/<%=ride._id%>">edit</a></p>
+						<p class="myrides_dropdown-option2 text-capitalize" id="<%=ride._id%>">remove</p>
 					</div>
 				
 		</div>

@@ -21,12 +21,12 @@
 	                </select>
 	          </div>
 	          
-	          <div class="search_input">
+	          <div class="search_input" style="border-right: 0">
 	        
 				<input value="<%= search.date%>" type="date"  name="date" class="search_date">
 	          </div>
 
-	       	   <button type="submit" class="btn search_button">Search</button>
+	       	   <button type="submit" class="search_button">Search</button>
 	        </div>
 	    </form>
 </section>
@@ -57,20 +57,20 @@
 	                </select>
 	          </div>
 	          
-	          <div class="search_input">
+	          <div class="search_input" style="border-right: 0">
 	       
 	            <% let dates=new Date();
 	               let year=dates.getFullYear();
 	               let month=dates.getMonth()+1;
-	               month=month>10?month:"0"+month;
+	               month=month>9?month:"0"+month;
 	               let day=dates.getDate();
-	               day=day>10?day:"0"+day;
+	               day=day>9?day:"0"+day;
 
 	               let date=year+"-"+month+"-"+day;
 	            %>
 				<input type="date" value="<%=date%>" name="date" class="search_date">
 	          </div>
-	       	  <button type="submit" class="btn search_button">Search</button>
+	       	  <button type="submit" class="search_button">Search</button>
 	        
 	        </div>
     </form>

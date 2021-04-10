@@ -2,7 +2,7 @@
 {
     /*//#ff6a00*/
 	--primary-color:white;
-    --secondary-color:#ff6a00;
+    --secondary-color:#4a5ec9;;
 
 }
 
@@ -51,7 +51,6 @@ nav
      border-right: 1.5px solid black;
      border-top: 1.5px solid black;
 }
-
 
 .user_img{
     height: 35px;
@@ -141,6 +140,8 @@ nav
     display: flex;
     margin-left: 29px;
 }
+
+/* COMMON TO ALL */
 input,
 textarea,
 input[type='button'],
@@ -166,11 +167,17 @@ textarea
     background-color: var(--secondary-color);
     
 }
+input[type='submit']{
+    margin: auto;
+    display: block
+}
 textarea
 {
     outline: none;
     appearance: none;   
     width: 95% !important ;
+    background-color: #fff !important;
+    color: black !important;
     box-sizing: content-box;
     min-height: 120px;
 }
@@ -210,15 +217,16 @@ select
     font-size: 1.2rem;
 }
 
-/*  FORM STYLES */
+/*  FORM STYLES  for signin and signup*/
 
 .form_container
 {
     width: 450px !important;
-    background-color: white;    
+    background-color: #ffff;    
     margin: 20px auto;  
     padding: 18px;
     border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 12%), 0 6px 6px 0 rgb(0 0 0 / 24%);
 }
 .error_msg
 {

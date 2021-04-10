@@ -17,6 +17,8 @@ router.get("/profile",hasAuthHandler,userController.get);
 router.get("/profile/id/:id",userController.getProfileById);
 router.post("/profile",checkBodyHandler,hasAuthHandler,userController.post);
 
+router.get("/logout",hasAuthHandler,userController.logout);
+
 router.get("/get/myrides/",hasAuthHandler,userController.getMyRides);
 
 router.get("/get/myride/form",hasAuthHandler,userController.getMyRideForm);
@@ -26,15 +28,15 @@ router.post("/post/myride/form",checkBodyRideHandler,hasAuthHandler,userControll
 router.get("/edit/myride/id/:id",hasAuthHandler,userController.editMyRideForm);
 router.post("/edit/myride/id/:id",checkBodyRideHandler,hasAuthHandler,userController.postEditMyRideForm);
 
-router.get("/remove/myride/id/:id",hasAuthHandler,userController.removeMyRideForm);
+router.post("/remove/myride/",hasAuthHandler,userController.removeMyRideForm);
 
-router.get("/verifiy/email/:id",hasAuthHandler,asyncHandler(userController.emailVerified));
+router.get("/verifiy/email/:id",asyncHandler(userController.emailVerified));
 
-router.get("/reset/password/:id",hasAuthHandler,userController.resetPassword);
-router.post("/reset/password/:id",hasAuthHandler,asyncHandler(userController.postResetPassword));
+router.get("/reset/password/:id",userController.resetPassword);
+router.post("/reset/password/:id",asyncHandler(userController.postResetPassword));
 
-router.get("/forget/password/",hasAuthHandler,userController.forgetPassword);
-router.post("/forget/password/",hasAuthHandler,asyncHandler(userController.postForgetPassword));
+router.get("/forget/password/",userController.forgetPassword);
+router.post("/forget/password/",asyncHandler(userController.postForgetPassword));
 
 
 module.exports=router;

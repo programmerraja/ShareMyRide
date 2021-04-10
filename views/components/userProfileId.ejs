@@ -12,25 +12,24 @@
 
 		<!-- user profile bottom -->
 		<div class="user_profile-bottom">
-			<div class="user_profile-bio">
-				<p>Bio:</p>
-				<p><%= user_profile.bio %></p>
-				
+			<div class="user_profile-text">
+				<p class="text-muted">"<%= user_profile.bio %> hai "</p>
 			</div>
 			
-			<div class="user_profile-whatsapp">
-
-				<p><%= user_profile.whatsappno %></p>
+			<div class="user_profile-text">
+				<p class="text-capitalize "><i class="fab fa-whatsapp"></i>WhatsApp no:</p>
+				<p class="ml-5"><%= user_profile.whatsappno %></p>
 
 				
 			</div>
-			<div class="user_profile-phoneno">
+			<div class="user_profile-text">
+				<p class="text-capitalize "><i class="fas fa-phone-volume"></i>Phone no:</p>
 				<p><%= user_profile.phoneno %></p>
 
 				
 			</div>
-			<div class="user_profile-experience">
-				<p>Driving Experince</p>
+			<div class="user_profile-text">
+				<p class="text-capitalize "><i class="fas fa-car"></i>Driving expereince:</p>
 				<p><%= user_profile.drivingexpereince %></p>
 
 				

@@ -12,6 +12,12 @@ function get(req,res) {
 	res.render("userProfile",{user:req.user});
 }
 
+//handling GET /user/logout
+function logout(req, res) {
+    req.session.destroy();
+    res.redirect("/");
+}
+
 async function getProfileById(req,res) {
 	if(req.params.id){
 		let id=req.params.id;
@@ -202,13 +208,17 @@ async function postEditMyRideForm(req,res){
 		
 }
 async function removeMyRideForm(req,res){
-	if(req.params.id){
-		 let id=req.params.id;	 
+	if(req.body.id){
+		 let id=req.body.id;	 
 		 let user=req.user;
 		 let user_id=user._id;
 		 let ride=await ridemodel.deleteOne({_id:id,user_id,user_id});
+		 //need to show user if some thing bad for better use js in client side 
 		 if(ride){
-		 	res.render("myRides",{user:req.user});
+		 	res.json({"status":"Sucess",msg:"Successfully Removed"});
+		 }
+		 else{
+		 	res.json({"status":"Failure",msg:"Sorry Something went wrong!"});
 		 }
 
 	}
@@ -344,6 +354,7 @@ async function emailVerified(req,res){
 module.exports=
 	{
 		get,
+		logout,
 		getProfileById,
 		post,
 		getMyRideForm,

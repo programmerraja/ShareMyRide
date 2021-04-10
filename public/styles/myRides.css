@@ -38,6 +38,7 @@
 	background-color: var(--primary-color);
 	margin:10px  10px;
 	position: relative;
+	padding: 10px;
 	border: 1px solid #e5e5e5;
 
 }
@@ -47,8 +48,8 @@
 }
 .myrides-left img
 {
-	height: 70px;
-	width: 70px;
+	height: 100%;
+	width: 100%;
 }
 .myrides-right
 {
@@ -57,7 +58,7 @@
 }
 .vechile_type 
 {
-	margin-left: 10px;
+	margin-left: 25px;
 
 }
 .myrides-right-detail,
@@ -70,13 +71,13 @@
 	flex-direction: column;
 }
 .line{
-	background: #8b9298;
+	background-color:var(--secondary-color);
     height: 31px;
     margin: 0;
     width: 3px;
     position: relative;
-    left: 13px;
-    top: -5px;
+    left: 14px;
+    top: -6px;
 }
 .location_to{
 	margin-top: -10px;
@@ -116,19 +117,22 @@
     border: 1px solid #e5e5e5;
     box-shadow: 0 0 6px 0 rgb(0 0 0 / 12%), 0 6px 6px 0 rgb(0 0 0 / 24%);
 }
-.myrides_dropdown-option{
+.myrides_dropdown-option1,
+.myrides_dropdown-option2{
 	padding:0.50rem 0; 
 	padding-left: 0.50rem;
 	cursor: pointer;
 	border-radius: 7px;
 }
-.myrides_dropdown-option a{
+.myrides_dropdown-option1 a,
+.myrides_dropdown-option2 a{
 	display: block;
 	width: 100%;
 	color: black;
 	text-decoration: none;
 }
-.myrides_dropdown-option:hover{
+.myrides_dropdown-option1:hover,
+.myrides_dropdown-option2:hover{
 	background-color:var(--secondary-color);
 }
 /*  MOBILE  */

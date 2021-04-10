@@ -21,15 +21,15 @@
 		</div>
 			<div class="vehicle_card-price">
 				<p class="text-capitalize m-0 text-muted">Amount for 1 seat</p>
-				<p class="m-0 font-weight-bold">Rs.<%= ride.amount %></p>
+				<p class="m-0 font-weight-bold"><i class="fas fa-rupee-sign"></i><%= ride.amount.toLocaleString() %></p>
 			</div>
 			<div class="vehicle_card-owner">
 
-				<div class="owner_name"><p><%= owner.name %></p></div>
-				<div class="onwer_link">
+					<div class="owner_name text-capitalize"><p><%= owner.name %></p></div>
+				<div class="owner_link">
 						<a href="/user/profile/id/<%=owner.id%>">
-							<img src="/public/img/user.svg" class="user_img">
-							<span class="arrow"></span>
+							<img src="/public/img/user.svg" class="rider_img">
+							
 						</a>
 				</div>
 			</div>
