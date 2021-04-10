@@ -22,9 +22,8 @@ async function post(req,res)
           res.render("signup",{error_msg:"Invalid Email",user:""}); 
           return
       }
-
       
-      let hash = bcrypt.hashSync(req.body.password, 2);
+      let hash = bcrypt.hashSync(req.body.password, salt_rounds);
       req.body.password=hash;
       let new_user=new usermodel(req.body);
       

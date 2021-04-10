@@ -5,7 +5,10 @@ const User = require("../models/Users");
 
 async function post(req,res){
 	if(req.body){
-		 const {from,to,type,date}=req.body;
+		 let {from,to,type,date}=req.body;
+
+		 from=from.toLowerCase();
+		 to=to.toLowerCase();
 		 //need to avoid duplicate in it 
 		 //using object to find the ride that not repeated O(n) time
 		 let temp={};

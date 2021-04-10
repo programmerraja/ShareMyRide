@@ -96,6 +96,22 @@ nav
     padding: 10px;
     right: 10px;
 }
+.home_option-text a
+{
+    text-decoration:none;
+
+}
+.home_option-text p{
+    color:black;
+    padding:0.50rem 0; 
+    padding-left: 0.50rem;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.home_option-text p:hover{
+    background-color: var(--secondary-color);
+}
 .profile{
     display: flex;
     justify-content:center;
@@ -243,5 +259,23 @@ select
 .form_container
 {
     width: 90% !important; 
+}
+/*  NAV POPUP HOME*/
+.home_img{
+    display: none;
+}
+.home_arrow{
+    display: none;
+}
+.home_dropdown{
+    visibility: initial !important;
+    position: static;
+    border:0;
+    background-color: #f8f9fa;
+    box-shadow: none;
+    padding-left: 27px;
+}
+.home_dropdown-arrow{
+    display: none;
 }
 }

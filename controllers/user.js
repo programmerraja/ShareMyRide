@@ -25,7 +25,6 @@ async function getProfileById(req,res) {
 	}
 }
 
-
 async function post(req,res){
 	//need to check if user realy change anything else dont update if user change his mail 
 	//send the confirmation message
@@ -114,6 +113,10 @@ function getMyRideForm(req,res){
 async function postMyRideForm(req,res){
 	if(res.locals.is_correct_ride){
 		 let {from,to,type,passenger,amount,time,date}=req.body;
+		 //converting to lower case
+		 from=from.toLowerCase();
+		 to=to.toLowerCase();
+
 		 let time_array=convertTimeToString(time);
 		 time=time_array[0]+":"+time_array[1]+" "+time_array[2];
 		 let user=req.user;

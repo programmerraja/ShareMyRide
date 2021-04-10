@@ -64,6 +64,9 @@
      border-right: 1.5px solid black;
      border-top: 1.5px solid black;
 }
+.rider_img{
+	 height: 35px;
+}
 /*  MOBILE  */
 @media (max-width:768px)
 {

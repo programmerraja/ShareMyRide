@@ -17,7 +17,7 @@ function postHandler(req,res,next){
     //if user sucessfully login we need to call manually the login function
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/user/profile');
+      return res.redirect('/user/myrides');
     });
   })(req, res, next);	
 }

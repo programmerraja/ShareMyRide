@@ -1,12 +1,7 @@
-<div class="search_wrapper">
-	<h3 class="search_background-text" >your ride. your choice.</h3>
-	
-<div class="search_background">
-	<img src="/public/img/home.png" class="search_background-image">
-</div>
 <% if(!(typeof search==="undefined")){%>
    <section class="search_container">
 		 <form novalidate="" class="container" action="/search/ride" method="post">
+   		   	
    		   	<div class="search_card">
 	           <div class="search_input">
 	        	 <div class="circle"></div>
@@ -31,7 +26,7 @@
 				<input value="<%= search.date%>" type="date"  name="date" class="search_date">
 	          </div>
 
-	       	  <button type="submit" class="btn search_button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-gqjmRU ECgfO" width="24" height="24" aria-hidden="true"><g fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="22" y1="22" x2="16.4" y2="16.4"></line><circle cx="10" cy="10" r="9"></circle></g></svg></button>
+	       	   <button type="submit" class="btn search_button">Search</button>
 	        </div>
 	    </form>
 </section>
