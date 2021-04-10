@@ -32,7 +32,8 @@ const UserSchema = new mongoose.Schema(
                                             required:true
                                         },
                                         licenseno:{
-                                            type:Number
+                                            type:String,
+                                            required:true
                                         },
                                         bio:{
                                             type:String

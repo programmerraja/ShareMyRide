@@ -225,51 +225,7 @@ async function removeMyRideForm(req,res){
 		 	 
 		
 }
-async function postUserProfile(req,res){
-	//if we change user phone ... we also need to update the use phone no from ride model 
-	if(req.body.name && req.body.old_password){
 
-      let {name,old_password,new_password}=req.body;
-      let user_id=req.user._id;
-      let user= await usermodel.findOne({_id:user_id});
-      if (user) {
-
-   		  if(bcrypt.compareSync(old_password,user.password)){
-   		  	if(new_password){
-   		  	    new_password=bcrypt.hashSync(new_password, 2);
-   		  		user.name=name;
-   		  		user.password=new_password;
-   		  	}
-   		  	else{
-   		  	   user.name=name;
-   		  	}
-   		  	
-   		  	user=await user.save().catch((err)=>
-   		  								{
-   		  									let error_msg=dbErrorHandler(err)
-			         						res.render("userProfile",
-			         						{
-			         						user:req.user,
-			          						name:req.user.name,
-			          						error_msg:error_msg
-			          						});
-			         					});
-   		  	if(user){
-   		  		res.render("userProfile",{user:req.user,
-										  name:user.name,
-					 		 			  error_msg:"Sucess fully updated"});
-   		  	} 
-   		  	
-   		 }
-   		 else{
-   		 	res.render("userProfile",{name:req.user.name,
-							 		 password:req.user.password,
-							 		 error_msg:"Password does not match"});
-   		 }
-   	}
-   
-  	}
-}
 
 async function forgetPassword(req,res){
 

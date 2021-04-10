@@ -5,7 +5,7 @@ function checkMailVerified(req,res,next){
 		next()
 		return
 	}
-	res.json({status:"Failed",error_msg:"Please verify your mail to use our services"});
+	res.render("myRideForm",{error_msg:"Please verify your mail to post the ride"});
 	return;
 	
 

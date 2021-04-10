@@ -45,6 +45,7 @@
 .search_input{
         border-right: 1px solid;
         display: flex;
+   		flex: 1;
         align-items: center;
 }
 .search_input input,
@@ -183,6 +184,7 @@ input[type="date"]{
    border-bottom: 1px solid #808080b0; 
    width: 100%;
    padding: 0 12px;
+   flex: initial;
 }
 .search_input input,
 .search_input select{

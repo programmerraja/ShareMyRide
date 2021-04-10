@@ -4,6 +4,9 @@ const userController=require("../controllers/user");
 //middleware
 const hasAuthHandler=require("../middleware/hasAuthHandler");
 const asyncHandler=require("../middleware/asyncHandler");
+
+const checkMailVerified=require("../middleware/checkMailVerified");
+
 const {checkBodyHandler,checkBodyRideHandler}=require("../middleware/checkBodyHandler");
 
 //util
@@ -22,7 +25,7 @@ router.get("/logout",hasAuthHandler,userController.logout);
 router.get("/get/myrides/",hasAuthHandler,userController.getMyRides);
 
 router.get("/get/myride/form",hasAuthHandler,userController.getMyRideForm);
-router.post("/post/myride/form",checkBodyRideHandler,hasAuthHandler,userController.postMyRideForm);
+router.post("/post/myride/form",checkMailVerified,checkBodyRideHandler,hasAuthHandler,userController.postMyRideForm);
 
 //need to check that current user only changes his form simply user userid in query
 router.get("/edit/myride/id/:id",hasAuthHandler,userController.editMyRideForm);

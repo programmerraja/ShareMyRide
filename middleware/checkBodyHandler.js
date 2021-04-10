@@ -1,6 +1,7 @@
 
 
 function checkBodyHandler(req,res,next){
+	console.log(req.body)
 	let {name,
 		email,
 		password,

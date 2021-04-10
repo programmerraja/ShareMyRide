@@ -2,14 +2,11 @@
 	<!-- <div class="myrides_search">
 		<input type="text" name="search">
 	</div> -->
-	<div class="sucess-msg bg-success p-2 text-center">
-		<p class="text-uppercase text-white bg-success  text-center "></p>
-		<p>X</p>
-	</div>
-	<p class="text-uppercase text-white bg-danger p-2 text-center d-none"></p>
+	
 	<p class="text-uppercase text-muted text-center mt-2">your ride's</p>
 
 <% if(!(typeof rides==="undefined")) {%>
+	 <% if(rides.length>0) { %>
 	 <% rides.forEach((ride,i)=>{ %>
 	<div class="myrides" >
 		
@@ -65,3 +62,5 @@
 		<p class="text-muted text-capitalize text-center m-5">No ride's found</p>
 	<% } %>
 </div>
+<%}else { %>
+<% }%>

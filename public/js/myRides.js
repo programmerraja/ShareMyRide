@@ -6,6 +6,7 @@ function showDropDown(e){
 
 async function removeRide(e){
 	let id=e.target.attributes.id.value;
+	let popup_container=document.querySelector(".popup_container");
 	if(id){
 			let body=JSON.stringify({"id":id});
 			let res=await fetch("/user/remove/myride/",{
@@ -17,16 +18,13 @@ async function removeRide(e){
 
 			res=await res.json();
 			if(res.status==="Sucess"){
-				let success_text=document.querySelector(".bg-success");
-				console.log(success_text,res)
-				success_text.innerText=res.msg;
-				success_text.classList.toggle("d-none");
+				popup_container.style.display="flex";
+				popup_container.children[0].children[0].innerText=res.msg;	
 				e.target.parentElement.parentElement.parentElement.style.display="none";
 			}
 			else{
-				let danger_text=document.querySelector(".bg-danger");
-				danger_text.innerText=res.msg;
-				danger_text.classList.toggle("d-none");
+				popup_container.style.display="flex";
+				popup_container.children[0].children[0].innerText=res.msg;	
 				
 			}
 	}

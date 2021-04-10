@@ -64,7 +64,7 @@ app.use("/user",userrouter);
 
 
 app.get("/",(req,res)=>{
-	res.render("index");
+	res.render("index",{user:req.user});
 })
 
 //error handler
