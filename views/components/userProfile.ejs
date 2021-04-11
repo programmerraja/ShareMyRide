@@ -37,9 +37,9 @@
               <div class="form-group">
                 <label class="form-label" for="formBasicPhoneno">Gender</label>
                 <select  id="Gender" name="gender" >
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option value="male" <%= user.gender==='male'?'selected':''%>>Male</option>
+                        <option value="female" <%= user.gender==='female'?'selected':''%>>Female</option>
+                        <option value="other" <%= user.gender==='other'?'selected':''%>>Other</option>
                 </select>
               </div>
           </div>

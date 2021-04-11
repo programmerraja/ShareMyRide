@@ -41,7 +41,7 @@ async function post(req,res){
                                               );
                                           });
       if(new_user){
-          let link=req.protocol+"://"+req.get("host")+"/user/verfiy/email/"+new_user._id;
+          let link=req.protocol+"://"+req.get("host")+"/user/verifiy/email/"+new_user._id;
           let msg=await verfiyMail(new_user.email,new_user.name,link);
           if(msg){
             res.redirect("/signin");
