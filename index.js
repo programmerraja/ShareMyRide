@@ -52,16 +52,13 @@ app.set("views","./views");
 
 let port=process.env.PORT || 3000;
 
-
 //routing
-
 app.use("/public",express.static(path.join(__dirname+"/public")));
 app.use("/signin",signinrouter);
 app.use("/signup",signuprouter);
 app.use("/search",searchrouter);
 app.use("/user",userrouter);
 
-// AIzaSyBHiHSqHQrJO3a73nAfKsH7-ARO7BnEqyE
 
 app.get("/",(req,res)=>{
 	res.render("index",{user:req.user});
@@ -72,12 +69,11 @@ app.use(errorHandler);
 
 //404 page 
 app.get("/*",(req,res)=>{
-	res.send("<h1>404 Not Found</h1>");
+	res.render("error");
 })
 
 process.on("uncaughtException",()=>{
-	
-
+	console.log("uncaughtException")
 })
 
 app.listen(port,()=>{console.log("server started")});

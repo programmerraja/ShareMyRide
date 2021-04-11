@@ -51,7 +51,7 @@ async function verfiyMail(to_mail,user_name,link){
 
 	let subject="Verfiy Your Mail";
 	let body="<p>Hai "+user_name+",</p>\
-	 		<p>we're happy you signed up for Share My Ride. To start exploringthe Share My Ride confirm your email address\
+	 		<p>we're happy you signed up for Share My Ride. To start exploring the Share My Ride confirm your email address\
 	 		 <a href='"+link+"'>Verfiy Now</a>"
 
 	let msg=await sendMail(subject,body,to_mail);
@@ -128,7 +128,7 @@ function convertTimeToTime(time){
 	  meridian=temp[1];
 
 	 
-	  if (meridian==="PM") {
+	  if (meridian==="PM" && hours!=12) {
 	    hours += 12;
 	  } else if (meridian==="AM") {
 	    if (hours == 12) {
@@ -138,8 +138,7 @@ function convertTimeToTime(time){
 	   //adding zero in front if it is one digit number
 	  hours=hours<10?"0"+hours:hours;
 	  minutes=minutes<10?"0"+minutes:minutes
-	  
-		return hours+":"+minutes+":00";
+	  return hours+":"+minutes+":00";
 }
 module.exports={
 	generateToken,

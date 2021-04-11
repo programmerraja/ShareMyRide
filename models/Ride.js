@@ -34,9 +34,7 @@ const RideSchema = new mongoose.Schema(
                                           required:true  
                                         },
                                         passenger:{
-                                            type:Number,
-                                            required:true
-
+                                            type:Number
                                         },
                                         amount:{
                                             type:Number,

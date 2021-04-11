@@ -100,19 +100,15 @@ async function post(req,res){
 
  }
 
-function logout(req,res){
-		req.session.destroy();
-		res.redirect("/");
-}
-
 async function getMyRides(req,res){
 	let user_id=req.user._id;
 	let rides=await ridemodel.find({user_id:user_id});
 	if(rides){
 		res.render("myRides",{user:req.user,rides});
+		return
 	}
 	//render 404 
-
+	res.render("error");
 }
 function getMyRideForm(req,res){
 	res.render("myRideForm",{user:req.user});
@@ -172,6 +168,8 @@ async function editMyRideForm(req,res){
 		}
 	}
 	// render the 404 page 
+	res.render("error");
+
 }
 
 async function postEditMyRideForm(req,res){
@@ -224,21 +222,19 @@ async function removeMyRideForm(req,res){
 		 else{
 		 	res.json({"status":"Failure",msg:"Sorry Something went wrong!"});
 		 }
-
+		 return;
 	}
-		 	 
-		
+	res.render("error");
+	
 }
 
 
 async function forgetPassword(req,res){
-
-		res.render("forgetPassword",{user:""})
+		res.render("forgetPassword",{user:req.user})
 
 }
 //handling POST /user/forget/password
 async  function postForgetPassword(req,res){
-
 	if(req.body.email){
 		let email=req.body.email;
 		var user=await usermodel.findOne({email:email});
@@ -264,13 +260,15 @@ async  function postForgetPassword(req,res){
 			return
 		}
 		res.json({status:"Failure",msg:"No user exit with given gmail"})
+		return
 	}
+	res.render("error");
+
 }
 
 //handling GET /user/reset/password
 async function resetPassword(req,res){
-		res.render("resetPassword",{user:""})
-
+		res.render("resetPassword",{user:req.user})
 }
 
 //handling POST /user/reset/password
@@ -293,8 +291,7 @@ async  function postResetPassword(req,res){
 		}
 		return
 	}
-	res.status(400).json({status:"Failure",msg:"Link not found"});
-
+	res.render("error");
 }
 
 async function emailVerified(req,res){
@@ -307,7 +304,7 @@ async function emailVerified(req,res){
 			res.render("emailVerified",{user:""});
 			return
 		}
-		res.render("error")
+		res.render("error");
 	}
 }
 
@@ -324,6 +321,8 @@ module.exports=
 		removeMyRideForm,
 		getMyRides,
 		forgetPassword,
+		postForgetPassword,
 		resetPassword,
+		postResetPassword,
 		emailVerified
 	};

@@ -28,7 +28,7 @@ async function post(req,res){
             email:req.body.email,
             password:req.body.password,
             date_of_birth:req.body.date_of_birth,
-            phoneno:req.body.phone_no,
+            phoneno:req.body.phoneno,
             whatsappno:req.body.whatsappno,
             drivingexpereince:req.body.drivingexpereince,
             licenseno:req.body.licenseno,
@@ -42,8 +42,8 @@ async function post(req,res){
                                           });
       if(new_user){
           let link=req.protocol+"://"+req.get("host")+"/user/verfiy/email/"+new_user._id;
-          let msg=await verfiyMail(new_user.email,new_user.name);
-          if(!msg){
+          let msg=await verfiyMail(new_user.email,new_user.name,link);
+          if(msg){
             res.redirect("/signin");
           }
           else{

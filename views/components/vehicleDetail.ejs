@@ -16,9 +16,14 @@
 				<p class="m-0 font-weight-bold"><%= ride.to%></p>
 			</div>
 		</div>
-		<div class="vehicle_card-time">
+		<div class="vehicle_card-time d-flex justify-content-around">
 			<p><i class="far fa-clock"></i><%= ride.time %></p>
+				<% if(ride.passenger) { %>
+			<p class="text-capitalize m-0"><i class="fas fa-users"></i></i><%=ride.passenger%></p>
+				<% } %>
+			
 		</div>
+	
 			<div class="vehicle_card-price">
 				<p class="text-capitalize m-0 text-muted">Amount for 1 seat</p>
 				<p class="m-0 font-weight-bold"><i class="fas fa-rupee-sign"></i><%= ride.amount.toLocaleString() %></p>
