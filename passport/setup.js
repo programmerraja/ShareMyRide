@@ -23,7 +23,7 @@ async function AuthUser(email, password, done)
             let user= await User.findOne({email:email});
             if (user) {
                 let hash=user.password;   
-                 if(!bcrypt.compareSync(hash,password)){
+                 if(bcrypt.compareSync(hash,password)){
                             return done(null, user);
                 }
                 else{

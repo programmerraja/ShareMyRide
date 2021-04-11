@@ -10,7 +10,12 @@ const salt_rounds = 5;
 
 function get(req,res)
 {
-	res.render("signup");
+	 if(!req.user){
+   res.render("signup");
+  }
+  else{
+    res.redirect("/user/get/myrides/")
+  }
 }
 
 //handling POST /signup

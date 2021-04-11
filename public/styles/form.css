@@ -66,3 +66,11 @@
 .change_password:hover{
     background-color: #453cc9ab;
 }
+
+@media (max-width:768px)
+{
+.forget_container,
+.reset_container{
+    width:90%;
+}
+}

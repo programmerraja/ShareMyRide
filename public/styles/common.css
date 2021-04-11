@@ -328,7 +328,6 @@ nav a:hover{
 .profile_dropdown{
     visibility: initial !important;
     position: initial;
-    background-color: #f8f9fa;
     width: 100%;
     box-shadow: none;
     border: 0;

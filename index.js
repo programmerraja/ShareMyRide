@@ -34,7 +34,7 @@ mongoose.set('useCreateIndex', true);
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({
-				  secret: 'secret',
+				  secret: 'asdfghjkwertyuixcvbnmsdfghjkwertyu',
 				  resave: false,
 				  saveUninitialized: false,
 				  cookie: { secure: false },
