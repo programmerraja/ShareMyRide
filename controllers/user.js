@@ -39,6 +39,7 @@ async function post(req,res){
 			email,
 			password,
 			new_password,
+			date_of_birth,
 			gender,
 			phoneno,
 			whatsappno,
@@ -60,6 +61,7 @@ async function post(req,res){
    		  	user.name=name;
    		  	user.email=email;
    		  	user.gender=gender;
+   		  	user.date_of_birth=date_of_birth;
    		  	user.phoneno=phoneno;
    		  	user.whatsappno=whatsappno;
    		  	user.licenseno=licenseno;
@@ -118,7 +120,7 @@ function getMyRideForm(req,res){
 
 async function postMyRideForm(req,res){
 	if(res.locals.is_correct_ride){
-		 let {from,to,type,passenger,amount,time,date}=req.body;
+		 let {from,to,type,model,passenger,amount,time,date}=req.body;
 		 //converting to lower case
 		 from=from.toLowerCase();
 		 to=to.toLowerCase();
@@ -132,6 +134,7 @@ async function postMyRideForm(req,res){
 			  					from,
 			  					to,
 			  					type,
+			  					model,
 			  					passenger,
 			  					amount,
 			  					time,
@@ -175,7 +178,7 @@ async function postEditMyRideForm(req,res){
 	if(res.locals.is_correct_ride && req.params.id){
 
 		 let id=req.params.id;
-		 let {from,to,type,passenger,amount,time,date}=req.body;
+		 let {from,to,type,model,passenger,amount,time,date}=req.body;
 		 let time_array=convertTimeToString(time);
 		 time=time_array[0]+":"+time_array[1]+" "+time_array[2];
 		 
@@ -189,6 +192,7 @@ async function postEditMyRideForm(req,res){
 			  					from,
 			  					to,
 			  					type,
+			  					model,
 			  					passenger,
 			  					amount,
 			  					time,

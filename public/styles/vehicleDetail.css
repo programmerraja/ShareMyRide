@@ -43,7 +43,16 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 15px;
-	border: 8px solid  rgb(237, 237, 237);
+	border-top: 8px solid  rgb(237, 237, 237);
+	border-left: 0;
+	border-right: 0;
+}
+.vehicle_card-model{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 15px;
+	border-bottom:  8px solid  rgb(237, 237, 237);
 	border-left: 0;
 	border-right: 0;
 }

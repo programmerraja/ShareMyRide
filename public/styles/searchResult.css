@@ -74,6 +74,9 @@
     outline: none !important;
    
 }	
+.search_button:hover{
+    background-color: var(--secondary-color-less);
+}
 /* SEARCH RESULT */
 .search_container-result{
 	margin: 20px 0;

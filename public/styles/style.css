@@ -86,6 +86,9 @@
     outline: none !important;
    
 }
+.search_button:hover{
+    background-color: var(--secondary-color-less);
+}
 /*      Section 1  */
 
 .section1{
@@ -163,9 +166,8 @@ select{
     border-radius: 10px;    
 }
 .search_button{
-    border:0;
     flex-grow: 1;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 7px 6px;
 }
 
 }

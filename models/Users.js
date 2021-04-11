@@ -18,7 +18,13 @@ const UserSchema = new mongoose.Schema(
                                             default: false
                                         },
                                         password: {
-                                            type: String
+                                            type: String,
+                                            required:true
+                                        },
+                                        date_of_birth:{
+                                            type:Date,
+                                            required:true
+                                            
                                         },
                                         phoneno:{
                                             type:Number,
@@ -28,7 +34,7 @@ const UserSchema = new mongoose.Schema(
                                             type:Number
                                         },
                                         drivingexpereince:{
-                                            type: Number,
+                                            type: String,
                                             required:true
                                         },
                                         licenseno:{

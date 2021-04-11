@@ -29,6 +29,10 @@ const RideSchema = new mongoose.Schema(
                                             type:String,
                                             required:true
                                         },
+                                        model:{
+                                          type:String,
+                                          required:true  
+                                        },
                                         passenger:{
                                             type:Number,
                                             required:true

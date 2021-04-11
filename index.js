@@ -61,7 +61,7 @@ app.use("/signup",signuprouter);
 app.use("/search",searchrouter);
 app.use("/user",userrouter);
 
-
+// AIzaSyBHiHSqHQrJO3a73nAfKsH7-ARO7BnEqyE
 
 app.get("/",(req,res)=>{
 	res.render("index",{user:req.user});
