@@ -144,7 +144,9 @@
 	height: 5px;
 	width: 5px;
 }
-
+.myrides-right-detail p{
+	margin-top: 6px !important;
+}
 .myrides_dropdown{
 	width: 90px;
 	font-size: 14px;

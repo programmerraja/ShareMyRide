@@ -1,5 +1,10 @@
 <% if((typeof ride==="undefined")) {%>
  <section>
+  <% if((typeof error_msg==="undefined")) {%>
+                <div class="error_msg  text-capitalize"><span></span></div>
+                <%}else {%>
+                <div class="error_msg text-capitalize"><span><%= error_msg%></span></div>
+                <%}%>
   <form novalidate="" class="container form_container" method="post" action="/user/post/myride/form">
               <div class="form-group">
                 <label class="form-label" for="formBasicFrom">Leaving from</label>
@@ -46,15 +51,16 @@
               
               
               <input type="submit" class="btn create_button" value="Post">
-              <% if((typeof error_msg==="undefined")) {%>
-                <div class="error_msg text-capitalize"><span></span></div>
-                <%}else {%>
-                <div class="error_msg text-capitalize"><span><%= error_msg%></span></div>
-                <%}%>
+              
         </form>
   </section>
 <% }else {%>
 <section>
+   <% if((typeof error_msg==="undefined")) {%>
+                <div class="error_msg"><span></span></div>
+                <%}else {%>
+                <div class="error_msg"><span><%= error_msg%></span></div>
+                <%}%>
   <form novalidate="" class="container form_container" method="post" action="/user/edit/myride/id/<%= ride._id%>">
               <div class="form-group">
                 <label class="form-label" for="formBasicFrom">Leaving from</label>
@@ -107,11 +113,7 @@
               </div>
               
               <input type="submit" class="btn create_button" value="Save Ride">
-              <% if((typeof error_msg==="undefined")) {%>
-                <div class="error_msg"><span></span></div>
-                <%}else {%>
-                <div class="error_msg"><span><%= error_msg%></span></div>
-                <%}%>
+             
         </form>
   </section>
 <% }%>

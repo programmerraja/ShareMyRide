@@ -8,13 +8,12 @@ function showDropDown(e){
 		dropdown.classList.add("active_drop");
 	}
 	else{
-		console.log("hai")
 		let dropdown=document.querySelector(".active_drop");
 		let myrides_wrapper=document.querySelector(".myrides_wrapper");
-		
+	
 		dropdown.classList.toggle("invisible");
 		myrides_wrapper.classList.toggle("invisible");
-		
+
 		dropdown.classList.remove("active_drop");
 	}
 
