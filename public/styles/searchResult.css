@@ -84,6 +84,7 @@
 .search_result
 {
 	display: flex;
+    padding: 20px 25px;
 	background-color: var(--primary-color);
 	margin:0  10px;
 	border: 1px solid #e5e5e5;
@@ -95,7 +96,7 @@
 }
 .search_result-left img
 {
-	height: 70px;
+	height: 150px;
 	width: 70px;
 }
 .search_result-right
@@ -197,4 +198,8 @@ input[type="date"]{
     flex-grow: 1;
     border-radius: 0px 0px 10px 10px;
 }
+.search_result-right-detail p{
+    margin-top: 6px !important;
+}
 
+}

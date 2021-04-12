@@ -5,7 +5,11 @@
 			<% rides.forEach((ride,i)=>{ %>
 				<div class="search_result">
 					<div class="search_result-left">
-						<img src="https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png" alt="vechiles">
+						<% if(ride.type==="taxi"){ %>
+						<img src="/public/img/taxi.jpg" alt="vechiles">
+						<% }else{ %>
+						<img src="/public/img/truck.svg" alt="vechiles">
+						<% } %>
 					</div>
 					
 					<div class="search_result-right">
@@ -20,7 +24,7 @@
 							<span class="line"></span>
 							<div class="location_to text-muted mx-2">
 								
-								<p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);"></i><!-- <i class="fas fa-map-marker-alt"></i> --><%=ride.to%><p>
+								<p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);"></i><%=ride.to%><p>
 							</div>
 						</div>
 						<div class="search_result-right-detail">
@@ -33,6 +37,7 @@
 							</div>
 						</div>
 					</div>
+					
 					
 					<div class="search_result-link">
 							<a href="/search/ride/id/<%=ride._id%>">
