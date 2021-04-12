@@ -1,7 +1,23 @@
 function showDropDown(e){
-	let index=e.target.attributes.index.value;
-	let dropdown=document.querySelector(".index"+index);
-	dropdown.classList.toggle("invisible");
+	if(!(e===false)){
+		let index=e.target.attributes.index.value;
+		let dropdown=document.querySelector(".index"+index);
+		let myrides_wrapper=document.querySelector(".myrides_wrapper");
+		dropdown.classList.toggle("invisible");
+		myrides_wrapper.classList.toggle("invisible");
+		dropdown.classList.add("active_drop");
+	}
+	else{
+		console.log("hai")
+		let dropdown=document.querySelector(".active_drop");
+		let myrides_wrapper=document.querySelector(".myrides_wrapper");
+		
+		dropdown.classList.toggle("invisible");
+		myrides_wrapper.classList.toggle("invisible");
+		
+		dropdown.classList.remove("active_drop");
+	}
+
 }
 
 async function removeRide(e){
@@ -32,6 +48,9 @@ async function removeRide(e){
 }
 function main(){
 	let dot=document.querySelectorAll(".myrides-dot");
+	let myrides_wrapper=document.querySelector(".myrides_wrapper");
+	myrides_wrapper.addEventListener("click",()=>{showDropDown(false)});
+
 	for(let i=0;i<dot.length;i++){
 		dot[i].addEventListener("click",(e)=>{showDropDown(e)});
 	}
