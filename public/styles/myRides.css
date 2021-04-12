@@ -135,7 +135,12 @@
 .myrides_dropdown-option1:hover,
 .myrides_dropdown-option2:hover{
 	background-color:var(--secondary-color);
+	color: white;
 }
+.myrides_dropdown-option1 a:hover {
+	color: white;
+}
+
 /*  MOBILE  */
 
 @media (max-width:768px)
