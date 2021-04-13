@@ -5,6 +5,7 @@
     background-color: #c1c7c787;
 }
 .info_text{
+	display: none;
 	text-align: center;
 	color: gray;
 }

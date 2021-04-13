@@ -7,9 +7,8 @@ function checkMailVerified(req,res,next){
 			return
 		}
 		else{
-			res.render("myRideForm",{error_msg:"Please wait unitl We verify your Id"});
+			res.render("myRideForm",{error_msg:"Please wait untill We verify your Id"});
 			return
-			
 		}
 	}
 	res.render("myRideForm",{error_msg:"Please verify your mail to post the ride"});

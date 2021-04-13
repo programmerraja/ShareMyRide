@@ -1,7 +1,7 @@
 const mongoose=require("mongoose");
 const bcrypt = require ('bcrypt');
 var validator = require('validator');
-const usermodel=require("../models/Users");
+const User=require("../models/Users");
 //util
 const {generateToken,forgetPassword,AppError,verfiyMail,dbErrorHandler}=require("../util/util");
 
@@ -27,7 +27,7 @@ async function post(req,res){
       
       let hash = bcrypt.hashSync(req.body.password, salt_rounds);
       req.body.password=hash;
-      let new_user=new usermodel({
+      let new_user=new User({
             name:req.body.name,
             gender:req.body.gender,
             email:req.body.email,
@@ -53,7 +53,7 @@ async function post(req,res){
           }
           else{
             //need to remove user from database  if mail not send sucessfully
-            await usermodel.deleteOne({_id:new_user._id}).catch((err)=>
+            await User.deleteOne({_id:new_user._id}).catch((err)=>
                         {
                           let error_msg=dbErrorHandler(err)
                           res.render("signup",

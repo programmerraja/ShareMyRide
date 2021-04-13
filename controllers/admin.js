@@ -10,8 +10,7 @@ const User = require("../models/Users");
 
 //handling GET /signin
 function get(req, res) {
-    //render this only if he not sigin as user
-        res.render("admin");
+        res.render("admin",{user:req.user});
 
 }
 
@@ -47,8 +46,9 @@ async function removeUserById(req, res) {
         let user = await User.deleteOne({
             _id: user_id
         });
+        //remove ride also
+        // let ride=await deleteMany({ user_id: user_id,});
         if(user){
-
                 res.json({
                     status: "Sucess",
                     error_msg: "sucessfully removed"

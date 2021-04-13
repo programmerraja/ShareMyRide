@@ -46,8 +46,8 @@ async function removeUser(event,is_verifiy=false)
 						  	<div class="td">'+obj.email_verified+'</div>\
 						  	<div class="td">'+new Date(obj.created_at).toDateString()+'</div>\
 						  	<div class="td">'+obj.licenseno+'</div>\
+						  	<div class="td">'+new Date(obj.date_of_birth).toDateString()+'</div>\
 						  	<div class="td">'+obj.phoneno+'</div>\
-						  	<div class="td">'+obj.whatsappno+'</div>\
 						  	<div class="td">'+obj.drivingexpereince+'</div>\
 						  	<div class="td">'+obj.is_verified+'</div>\
 						  	<div class="td">\
@@ -80,27 +80,39 @@ async function removeUser(event,is_verifiy=false)
 		if(res.status=="Sucess")
 		{
 			if(res["users"]){
-			if(res["users"].length>0)
-			{
+			 if(res["users"].length>0){
 				table.style.display="flex";
-				info_text.style.display="none";
 				res["users"].forEach((user)=>
 				{
-					var user_id=user["_id"];
-					var username=user["name"];
-					var email=user["email"];
-					var email_verified=user["is_email_verified"];
-					var created_at=user["created_at"];
-					var licenseno=user["licenseno"];
-					var phoneno=user["phoneno"];
-					var whatsappno=user["whatsappno"];
-					var drivingexpereince=user["drivingexpereince"];
-					var is_verified=user["is_verified"];
+					let user_id=user["_id"];
+					let username=user["name"];
+					let email=user["email"];
+					let email_verified=user["is_email_verified"];
+					let created_at=user["created_at"];
+					let licenseno=user["licenseno"];
+					let phoneno=user["phoneno"];
+					let drivingexpereince=user["drivingexpereince"];
+					let is_verified=user["is_verified"];
+					let date_of_birth=user["date_of_birth"];
 
-					insertToTable({user_id,username,email,email_verified,created_at,licenseno,phoneno,whatsappno,drivingexpereince,is_verified},table);
-
+					insertToTable({user_id,
+								username,
+								email,
+								email_verified,
+								created_at,
+								licenseno,
+								date_of_birth,
+								phoneno,
+								drivingexpereince,
+								is_verified
+							},
+							table);
 				});	
-			}}	
+			  }
+			else{
+				info_text.style.display="initial";
+			}
+		}	
 		
 			//after fetching adding listener
 			let remove_user=document.querySelectorAll(".remove_user");

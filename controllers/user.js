@@ -2,8 +2,8 @@
 const mongoose=require("mongoose");
 const bcrypt = require ('bcrypt');
 //models
-const ridemodel=require("../models/Ride");
-const usermodel=require("../models/Users");
+const Ride=require("../models/Ride");
+const User=require("../models/Users");
 //util
 const {generateToken,sendPasswordReset,AppError,dbErrorHandler,convertTimeToString,convertTimeToTime}=require("../util/util");
 
@@ -21,7 +21,7 @@ function logout(req, res) {
 async function getProfileById(req,res) {
 	if(req.params.id){
 		let id=req.params.id;
-		let user_profile=await usermodel.findOne({_id:id});
+		let user_profile=await User.findOne({_id:id});
 		if(user_profile){
 			res.render("userProfileId",{user_profile,user:req.user});
 			return;
@@ -50,7 +50,7 @@ async function post(req,res){
 
 		let user_id=req.user._id;
         
-        let user= await usermodel.findOne({_id:user_id});
+        let user= await User.findOne({_id:user_id});
         
         if (user) {
    		  if(bcrypt.compareSync(old_password,user.password)){
@@ -102,7 +102,7 @@ async function post(req,res){
 
 async function getMyRides(req,res){
 	let user_id=req.user._id;
-	let rides=await ridemodel.find({user_id:user_id});
+	let rides=await Ride.find({user_id:user_id});
 	if(rides){
 		res.render("myRides",{user:req.user,rides});
 		return
@@ -125,7 +125,7 @@ async function postMyRideForm(req,res){
 		 time=time_array[0]+":"+time_array[1]+" "+time_array[2];
 		 let user=req.user;
 		 let user_id=user._id;
-		 new_ride=new ridemodel({
+		 new_ride=new Ride({
 		 						user_id:user_id,
 			  					from,
 			  					to,
@@ -159,7 +159,7 @@ async function editMyRideForm(req,res){
 		//used user id to avoid other user to edit the ride
 		let user_id=req.user._id;
 		let id=req.params.id;
-		let ride=await ridemodel.findOne({user_id:user_id,_id:id});
+		let ride=await Ride.findOne({user_id:user_id,_id:id});
 		if(ride){
 			//converting time format so we can set that as value  
 			ride.time=convertTimeToTime(ride.time);
@@ -183,7 +183,7 @@ async function postEditMyRideForm(req,res){
 		 let user=req.user;
 		 let user_id=user._id;
 		 
-		 ride=await ridemodel.findOneAndUpdate({
+		 ride=await Ride.findOneAndUpdate({
                 user_id:user_id,_id:id
             },{
 		 						user_id:user_id,
@@ -214,7 +214,7 @@ async function removeMyRideForm(req,res){
 		 let id=req.body.id;	 
 		 let user=req.user;
 		 let user_id=user._id;
-		 let ride=await ridemodel.deleteOne({_id:id,user_id,user_id});
+		 let ride=await Ride.deleteOne({_id:id,user_id,user_id});
 		 //need to show user if some thing bad for better use js in client side 
 		 if(ride){
 		 	res.json({"status":"Sucess",msg:"Successfully Removed"});
@@ -237,7 +237,7 @@ async function forgetPassword(req,res){
 async  function postForgetPassword(req,res){
 	if(req.body.email){
 		let email=req.body.email;
-		var user=await usermodel.findOne({email:email});
+		var user=await User.findOne({email:email});
 		if(user){
 			let token=generateToken();
 			let link=req.protocol+"://"+req.get("host")+"/user/reset/password/"+token;
@@ -245,7 +245,7 @@ async  function postForgetPassword(req,res){
 			//we adding 20 mins to current date and converting in to mili sec
 			let password_reset_expires=Date.now()+20*60*1000;	
 			//updating the user token
-			let new_user=await usermodel.findOneAndUpdate({_id:user._id},
+			let new_user=await User.findOneAndUpdate({_id:user._id},
 														  {password_reset_token:token,
 														   password_reset_expires:password_reset_expires});
 
@@ -279,11 +279,11 @@ async  function postResetPassword(req,res){
 		let password_reset_token = req.params.id;
 		let new_password=req.body.password;
 		//finding the user
-		var user=await usermodel.findOne({password_reset_token:password_reset_token,
+		var user=await User.findOne({password_reset_token:password_reset_token,
 										 password_reset_expires:{$gt:Date.now()}});
 		if(user){
 			let hash = bcrypt.hashSync(new_password, 2);
-			let new_user=await usermodel.findOneAndUpdate({_id:user._id},{password:hash});
+			let new_user=await User.findOneAndUpdate({_id:user._id},{password:hash});
 			res.json({status:"Sucess",msg:"Password Updated"});
 		}
 		else{
@@ -297,7 +297,7 @@ async  function postResetPassword(req,res){
 async function emailVerified(req,res){
 	if(req.params){
 		let user_id =req.params.id;
-		var user=await usermodel.findOne({_id:user_id});
+		var user=await User.findOne({_id:user_id});
 		if(user){
 			user.is_email_verified=true;
 			new_user=await user.save();
