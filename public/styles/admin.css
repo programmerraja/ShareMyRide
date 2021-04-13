@@ -59,3 +59,41 @@
 .verifiy_user:hover{
 	top:0.3em;
 }
+
+/*	Loading animation  */
+.loading_container
+{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.dot{
+  width: 30px;
+  height: 30px;
+  background: var(--secondary-color);
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bounce 1.2s infinite ease-in-out both;
+  animation: bounce 1.2s infinite ease-in-out both;
+}
+.dot1{
+    -webkit-animation-delay: -0.22s;
+ 	animation-delay: -0.32s;
+}
+.dot2 {
+	-webkit-animation-delay: -0.16s;
+  	animation-delay: -0.16s; 
+}
+@keyframes bounce {
+  0%, 80%, 100% { 
+  	-webkit-transform: scale(0); 
+  	transform: scale(0); 
+
+  }
+  40% {
+   -webkit-transform: scale(1.0);
+  	 transform: scale(1.0);
+
+    }
+}
