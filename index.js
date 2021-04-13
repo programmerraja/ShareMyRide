@@ -16,6 +16,8 @@ const signinrouter=require("./routes/signin");
 const signuprouter=require("./routes/signup");
 const searchrouter=require("./routes/search");
 const userrouter=require("./routes/user");
+const adminrouter=require("./routes/admin");
+
 
 const app=new express();
 const MONGO_URI =process.env.DBURL;
@@ -58,6 +60,7 @@ app.use("/signin",signinrouter);
 app.use("/signup",signuprouter);
 app.use("/search",searchrouter);
 app.use("/user",userrouter);
+app.use("/admin/dashboard/",adminrouter);
 
 
 app.get("/",(req,res)=>{

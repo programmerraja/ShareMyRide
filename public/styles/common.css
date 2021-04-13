@@ -2,8 +2,9 @@
 {
     /*//#ff6a00*/
 	--primary-color:white;
-    --secondary-color:#4a5ec9;
-    --secondary-color-less:#0028fffa;
+    --secondary-color:#00e7ff;/*;*/
+    --third-color:#4a5ec9;
+    --secondary-color-less:#00e7ffa6;/*#0028fffa;*/
 
 }
 
@@ -305,7 +306,7 @@ select
 }
 .popup_button:hover
 {
-    background-color: #453cc9ab;
+    background-color:var(--secondary-color-less);
 }
 /* Tab  */
 @media (max-width:998px)

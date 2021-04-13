@@ -1,3 +1,5 @@
+//Todo 
+//add no of rides 
 const mongoose = require("mongoose");
 // Create Schema
 const UserSchema = new mongoose.Schema(
@@ -13,9 +15,17 @@ const UserSchema = new mongoose.Schema(
                                             required: true,
                                             unique: true
                                         },
+                                        is_verified:{
+                                            type:Boolean,
+                                            default:false
+                                        },
                                         is_email_verified: {
                                             type: Boolean,
                                             default: false
+                                        },
+                                        is_admin:{
+                                            type:Boolean,
+                                            default:false
                                         },
                                         password: {
                                             type: String,
@@ -24,7 +34,6 @@ const UserSchema = new mongoose.Schema(
                                         date_of_birth:{
                                             type:Date,
                                             required:true
-                                            
                                         },
                                         phoneno:{
                                             type:Number,
@@ -43,6 +52,10 @@ const UserSchema = new mongoose.Schema(
                                         },
                                         bio:{
                                             type:String
+                                        },
+                                        created_at:{
+                                            type:Date,
+                                            default:new Date()
                                         },
                                         password_reset_token:{
                                             type:String

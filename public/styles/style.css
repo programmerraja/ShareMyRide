@@ -79,6 +79,7 @@
     height: 50px !important;
 	width: 113px !important;
     color: white;
+    font-weight: bold;
     border-radius:0 7px 6px 0; 
     border:0;
     background-color:var(--secondary-color);
@@ -120,30 +121,16 @@
 
     /*  footer */
 footer{
-   /* padding: 20px;*/
+  
     display: flex;
     flex-wrap: wrap;
-    /*background-color: #ededed;*/
-   /* height: 100px;*/
     align-items: center;
 }
-.footer_list{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    background: #ededed;
-    list-style: none;
-}
-.footer_item {
 
-}
 .copyright
 {
     width: 100%;
-    background-color: var(--secondary-color);
+    background-color: var(--third-color);
     text-align: center;
     color:white;
     padding: 10px;
