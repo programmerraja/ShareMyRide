@@ -76,7 +76,8 @@ nav li .nav-link:hover{
     transform: rotate(180deg);
 }
 .dropdown_wrapper,
-.myrides_wrapper{
+.myrides_wrapper,
+.loading_wrapper{
     position: fixed;
     z-index: 100;
     height: 100vh;
@@ -275,7 +276,7 @@ select
     position: fixed;
     background:#00000082;
     width: 100vw;
-    z-index: 1;
+    z-index: 300;
     display: none;
     justify-content: center;
     align-items: center;

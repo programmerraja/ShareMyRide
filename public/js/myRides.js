@@ -20,6 +20,8 @@ function showDropDown(e){
 }
 
 async function removeRide(e){
+	//blocking user
+	document.querySelector(".loading_wrapper").classList.toggle("invisible");
 	let id=e.target.attributes.id.value;
 	let popup_container=document.querySelector(".popup_container");
 	if(id){
@@ -47,15 +49,19 @@ async function removeRide(e){
 }
 function main(){
 	let dot=document.querySelectorAll(".myrides-dot");
+	
 	let myrides_wrapper=document.querySelector(".myrides_wrapper");
 	myrides_wrapper.addEventListener("click",()=>{showDropDown(false)});
 
 	for(let i=0;i<dot.length;i++){
 		dot[i].addEventListener("click",(e)=>{showDropDown(e)});
 	}
-	let remove_text=document.querySelector(".myrides_dropdown-option2");
+	let remove_text=document.querySelectorAll(".myrides_dropdown-option2");
+
 	if(remove_text){
-		remove_text.addEventListener("click",(e)=>{removeRide(e)});
+		for(let i=0;i<dot.length;i++){
+			remove_text[i].addEventListener("click",(e)=>{removeRide(e)});
+		}
 	}
 
 }

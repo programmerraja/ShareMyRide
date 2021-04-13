@@ -1,3 +1,5 @@
+<div class="loading_wrapper invisible"></div>
+
 <div class="myrides_wrapper  invisible">
 </div>
 
@@ -11,7 +13,11 @@
 	<div class="myrides" >
 		
 		<div class="myrides-left">
-				<img src="https://olawebcdn.com/images/v1/cabs/sl/ic_mini.png" alt="vechiles">
+				<% if(ride.type==="taxi"){ %>
+						<img src="/public/img/taxi.jpg" alt="vechiles">
+						<% }else{ %>
+						<img src="/public/img/truck.svg" alt="vechiles">
+						<% } %>
 		</div>
 
 		<div class="myrides-right">

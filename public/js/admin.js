@@ -3,7 +3,7 @@ var popup_container=document.querySelector(".popup_container");
 
 async function removeUser(event,is_verifiy=false)
 	{
-
+		document.querySelector(".loading_wrapper").classList.toggle("invisible");
 		let user_id=event.target.id;
 		let body=JSON.stringify({user_id:user_id});
 		if(is_verifiy){
@@ -24,7 +24,6 @@ async function removeUser(event,is_verifiy=false)
 		res=await res.json();
 		if(res.status==="Sucess")
 		{
-			console.log(res)
 			popup_container.style.display="flex";
 			popup_container.children[0].children[0].innerText=res.error_msg;
 			fetchUser();
@@ -68,9 +67,11 @@ async function removeUser(event,is_verifiy=false)
 		var info_text=document.querySelector(".info_text");
 		var children=table.children;
 		if(children.length>1){
-			for(let i=0;i<children.length;i++)
+			let length=children.length
+			for(let i=0;i<length-1;i++)
 			{
 				children[1].remove();
+
 			}
 		}
 		
@@ -100,16 +101,19 @@ async function removeUser(event,is_verifiy=false)
 
 				});	
 			}}	
+		
+			//after fetching adding listener
+			let remove_user=document.querySelectorAll(".remove_user");
+			remove_user.forEach((button)=>{button.addEventListener("click",(e)=>{removeUser(e)})});
+			let verifiy_user=document.querySelectorAll(".verifiy_user");
+			verifiy_user.forEach((button)=>{button.addEventListener("click",(e)=>{removeUser(e,true)})});
 		}
 	}
 
  
 async function  main() {
 		await fetchUser();
-		let remove_user=document.querySelectorAll(".remove_user");
-		remove_user.forEach((button)=>{button.addEventListener("click",(e)=>{removeUser(e)})});
-		let verifiy_user=document.querySelectorAll(".verifiy_user");
-		verifiy_user.forEach((button)=>{button.addEventListener("click",(e)=>{removeUser(e,true)})});
+		
 	}
 
 main()

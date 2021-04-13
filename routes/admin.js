@@ -11,6 +11,8 @@ const router= express.Router();
 
 //routes for /admin/dashboard
 router.get("/",adminAuthHandler,adminController.get);
+router.get("/users",adminAuthHandler,adminController.getUsers);
+
 
 router.post("/user/remove/",adminAuthHandler,asyncHandler(adminController.removeUserById));
 router.post("/user/verifiy/",adminAuthHandler,asyncHandler(adminController.verifiyUserById));
